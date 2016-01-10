@@ -27,11 +27,8 @@ partial class TypeUtility
                 .OrderBy(c => c.@params.Length)
                 .First();
 
-            var ctor = candidate.ctor;
-            if (candidate.@params.Length == 0)
-                return ctor.Invoke(null);
-            else
-                return ctor.Invoke(new[] { argument });
+            return candidate.ctor.Invoke(
+                candidate.@params.Length == 0 ? null : new[] { argument });
         }
 
         var members = sourceType.GetMember(memberName, BindingFlags.Public | BindingFlags.Static);
@@ -71,11 +68,8 @@ partial class TypeUtility
                 .OrderBy(c => c.@params.Length)
                 .First();
 
-            var method = candidate.method;
-            if (candidate.@params.Length == 0)
-                return method.Invoke(null, null);
-            else
-                return method.Invoke(null, new[] { argument });
+            return candidate.method.Invoke(null,
+                candidate.@params.Length == 0 ? null : new[] { argument });
         }
     }
     public static T GetInstance<T>(Type sourceType, string memberName, string argument = null)
