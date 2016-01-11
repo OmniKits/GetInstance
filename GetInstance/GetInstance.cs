@@ -17,7 +17,7 @@ partial class TypeUtility
                     switch (c.@params.Length)
                     {
                         case 0:
-                            return argument == null;
+                            return string.IsNullOrEmpty(argument);
                         case 1:
                             return c.@params[0].ParameterType == StringType;
                     }
@@ -58,7 +58,7 @@ partial class TypeUtility
                     switch (c.@params.Length)
                     {
                         case 0:
-                            return argument == null;
+                            return string.IsNullOrEmpty(argument);
                         case 1:
                             return c.@params[0].ParameterType == StringType;
                     }
