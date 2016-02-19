@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>GetInstance</id>
+        <id>GetInstance.CS</id>
         <version>0.0.2</version>
         <authors>Licshee</authors>
-        <projectUrl>https://github.com/NanaLich/GetInstance</projectUrl>
+        <projectUrl>https://github.com/OmniKits/GetInstance</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A smart generic GetInstance method accepts string arguments.</description>
     </metadata>
