@@ -35,6 +35,7 @@ partial class TypeUtility
         if (members.Length == 1)
         {
             var member = members[0];
+#if NETFX || SILVERLIGHT
             switch (member.MemberType)
             {
                 case MemberTypes.Field:
@@ -44,6 +45,15 @@ partial class TypeUtility
                     members[0] = ((PropertyInfo)member).GetGetMethod();
                     break;
             }
+#else
+            var field = member as FieldInfo;
+            if (field != null)
+                return field.GetValue(null);
+
+            var property = member as PropertyInfo;
+            if (property != null)
+                members[0] = property.GetGetMethod();
+#endif
         }
         // whatever
         {
